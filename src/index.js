@@ -2,7 +2,7 @@ renderForm();
 
 function renderForm() {
   const content = document.getElementById("content");   
-  const todoForm = document.createElement("form");
+  const newForm = document.createElement("form");
 
   const nameInput =  document.createElement("input");
   const descriptionInput = document.createElement("input");
@@ -14,8 +14,8 @@ function renderForm() {
   
   const submitBtn = document.createElement("input");
 
-  todoForm.classList.add("to-do-form");
-  todoForm.onsubmit = sendForm; 
+  newForm.classList.add("to-do-form");
+  newForm.onsubmit = sendForm; 
 
   nameInput.type = "text";
   nameInput.name = "name";
@@ -23,7 +23,9 @@ function renderForm() {
   nameInput.pattern = ".{3,30}";
   nameInput.title = 'Must be between 3 and 30 characters long';
   nameInput.required = true;
-  nameInput.onchange = function() { this.classList.add("visited") };
+  nameInput.addEventListener("focus", function() {
+    this.classList.add("visited");
+  });
 
   descriptionInput.type = "text";
   descriptionInput.name = "description";
@@ -31,7 +33,9 @@ function renderForm() {
   descriptionInput.pattern = ".{3,50}";
   descriptionInput.title = 'Must be between 3 and 50 characters long';
   descriptionInput.required = true;
-  descriptionInput.onchange = function() { this.classList.add("visited") };
+  descriptionInput.addEventListener("focus", function() {
+    this.classList.add("visited");
+  }); 
 
   emailInput.type = "email";
   emailInput.name = "email";
@@ -39,16 +43,18 @@ function renderForm() {
   emailInput.pattern = ".{3,50}";
   emailInput.title = 'Must be between 3 and 50 characters long';
   emailInput.required = true;
-  emailInput.onchange = function() { this.classList.add("visited") };
+  emailInput.addEventListener("focus", function() {
+    this.classList.add("visited");
+  });
 
   emailConfInput.type = "email";
   emailConfInput.name = "emailconf";
   emailConfInput.placeholder = "Repeat email";
-  emailConfInput.title = 'Repeat email';
+  emailConfInput.title = 'It has to match email field';
   emailConfInput.required = true;
-  emailConfInput.onchange = function() { this.classList.add("visited") };
-  emailConfInput.addEventListener("focus", () => { 
-    emailConfInput.pattern = `${emailInput.value}`; 
+  emailConfInput.addEventListener("focus", function() {
+    this.classList.add("visited"); 
+    this.pattern = `${emailInput.value}`; 
   });
 
   countryInput.type = "text";
@@ -56,26 +62,30 @@ function renderForm() {
   countryInput.placeholder = "Enter country";
   countryInput.pattern = ".{3,30}";
   countryInput.title = 'Must be between 3 and 30 characters long';
-  countryInput.onchange = function() { this.classList.add("visited") };
   countryInput.required = true;
-
+  countryInput.addEventListener("focus", function() { 
+    this.classList.add("visited");
+  });
+  
   passwordInput.type = "password";
   passwordInput.name = "password";
   passwordInput.placeholder = "Enter password";
   passwordInput.pattern = ".{3,30}";
   passwordInput.title = 'Must be between 3 and 30 characters long';
   passwordInput.required = true;
-  passwordInput.onchange = function() { this.classList.add("visited") };
+  passwordInput.addEventListener("focus", function() { 
+    this.classList.add("visited");
+  });
 
   passwordConfInput.type = "password";
   passwordConfInput.name = "passwordconf";
   passwordConfInput.placeholder = "Repeat password";
   passwordConfInput.pattern = ".{3,30}";
-  passwordConfInput.title = 'Must be between 3 and 30 characters long';
+  passwordConfInput.title = 'It has to match password field';
   passwordConfInput.required = true;
-  passwordConfInput.onchange = function() { this.classList.add("visited") };
-  passwordConfInput.addEventListener("focus", () => { 
-    passwordConfInput.pattern = `${passwordInput.value}`; 
+  passwordConfInput.addEventListener("focus", function() { 
+    this.classList.add("visited");
+    this.pattern = `${passwordInput.value}`; 
   });
 
   submitBtn.type = "submit";
@@ -83,16 +93,16 @@ function renderForm() {
   submitBtn.classList.add("submit-form-btn");
 
 
-  todoForm.appendChild(nameInput);
-  todoForm.appendChild(descriptionInput);
-  todoForm.appendChild(emailInput);
-  todoForm.appendChild(emailConfInput);
-  todoForm.appendChild(countryInput);
-  todoForm.appendChild(passwordInput);
-  todoForm.appendChild(passwordConfInput);
-  todoForm.appendChild(submitBtn);
+  newForm.appendChild(nameInput);
+  newForm.appendChild(descriptionInput);
+  newForm.appendChild(emailInput);
+  newForm.appendChild(emailConfInput);
+  newForm.appendChild(countryInput);
+  newForm.appendChild(passwordInput);
+  newForm.appendChild(passwordConfInput);
+  newForm.appendChild(submitBtn);
 
-  content.appendChild(todoForm);
+  content.appendChild(newForm);
 
   function sendForm() { alert("The form is valid, cheers") };
 }
