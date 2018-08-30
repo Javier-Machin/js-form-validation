@@ -28,7 +28,7 @@ input:focus {
   outline: none;
 }
 
-input:invalid {
+input:invalid:focus {
   border: 1px solid red;
 }
 

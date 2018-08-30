@@ -31,14 +31,14 @@ function renderForm() {
   descriptionInput.title = 'Must be between 3 and 50 characters long';
   descriptionInput.required = true;
 
-  emailInput.type = "text";
+  emailInput.type = "email";
   emailInput.name = "email";
   emailInput.placeholder = "Enter email";
   emailInput.pattern = ".{3,50}";
   emailInput.title = 'Must be between 3 and 50 characters long';
   emailInput.required = true;
 
-  emailConfInput.type = "text";
+  emailConfInput.type = "email";
   emailConfInput.name = "emailconf";
   emailConfInput.placeholder = "Repeat email";
   emailConfInput.title = 'Repeat email';
@@ -90,4 +90,3 @@ function renderForm() {
 
   function sendForm() { alert("The form is valid, cheers") };
 }
-
