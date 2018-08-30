@@ -32,6 +32,10 @@ input:invalid:focus {
   border: 1px solid red;
 }
 
+input:invalid.visited  {
+  border: 1px solid red;
+}  
+
 
 label {
   display: block;
