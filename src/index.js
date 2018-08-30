@@ -23,6 +23,7 @@ function renderForm() {
   nameInput.pattern = ".{3,30}";
   nameInput.title = 'Must be between 3 and 30 characters long';
   nameInput.required = true;
+  nameInput.onchange = function() { this.classList.add("visited") };
 
   descriptionInput.type = "text";
   descriptionInput.name = "description";
@@ -30,6 +31,7 @@ function renderForm() {
   descriptionInput.pattern = ".{3,50}";
   descriptionInput.title = 'Must be between 3 and 50 characters long';
   descriptionInput.required = true;
+  descriptionInput.onchange = function() { this.classList.add("visited") };
 
   emailInput.type = "email";
   emailInput.name = "email";
@@ -37,12 +39,14 @@ function renderForm() {
   emailInput.pattern = ".{3,50}";
   emailInput.title = 'Must be between 3 and 50 characters long';
   emailInput.required = true;
+  emailInput.onchange = function() { this.classList.add("visited") };
 
   emailConfInput.type = "email";
   emailConfInput.name = "emailconf";
   emailConfInput.placeholder = "Repeat email";
   emailConfInput.title = 'Repeat email';
   emailConfInput.required = true;
+  emailConfInput.onchange = function() { this.classList.add("visited") };
   emailConfInput.addEventListener("focus", () => { 
     emailConfInput.pattern = `${emailInput.value}`; 
   });
@@ -52,6 +56,7 @@ function renderForm() {
   countryInput.placeholder = "Enter country";
   countryInput.pattern = ".{3,30}";
   countryInput.title = 'Must be between 3 and 30 characters long';
+  countryInput.onchange = function() { this.classList.add("visited") };
   countryInput.required = true;
 
   passwordInput.type = "password";
@@ -60,7 +65,7 @@ function renderForm() {
   passwordInput.pattern = ".{3,30}";
   passwordInput.title = 'Must be between 3 and 30 characters long';
   passwordInput.required = true;
-
+  passwordInput.onchange = function() { this.classList.add("visited") };
 
   passwordConfInput.type = "password";
   passwordConfInput.name = "passwordconf";
@@ -68,6 +73,7 @@ function renderForm() {
   passwordConfInput.pattern = ".{3,30}";
   passwordConfInput.title = 'Must be between 3 and 30 characters long';
   passwordConfInput.required = true;
+  passwordConfInput.onchange = function() { this.classList.add("visited") };
   passwordConfInput.addEventListener("focus", () => { 
     passwordConfInput.pattern = `${passwordInput.value}`; 
   });
